@@ -1,29 +1,65 @@
 <?php
 session_start();
-// coloque arquivo do banco quando necessario
 
+// Conexão com o banco de dados
+$servername = "localhost";
+$username = "root";
+$password = "psilva09";
+$dbname = "controleacesso_sql";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verifica a conexão
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
+
+// Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 { 
     $nomeUsuario = $_POST['nomeUsuario'];
-    $senhaUsuario = md5($_POST['senhaUsuario']); // Criptografa a senha usada md5
+    $senhaUsuario = $_POST['senhaUsuario'];
 
-    if($nomeUsuario=='adm' && $senhaUsuario==md5('123'))
-    {
-        // Inicia a sessão
-        $_SESSION['idUsuario'] = 1; //Subtituir com os dados do banco quando necessario
-        $_SESSION['nivelAcesso'] = 'Administrador';
-        $_SESSION['usuario'] = $nomeUsuario;
-        date_default_timezone_set('America/Sao_Paulo');
-        $_SESSION['acesso']=date('d/m/Y H:i:s');
+    // Consulta para verificar se o usuário existe
+    $sql = "SELECT id_usuario, nome, senha, tipo_usuario FROM usuarios WHERE nome = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $nomeUsuario);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        header('Location: dashboard.php', ); //Redireciona para pagina de dashboard
-        exit;
+    // Se o usuário for encontrado
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Verifica se a senha está correta
+        if (password_verify($senhaUsuario, $row['senha'])) {
+            // Inicia a sessão com os dados do usuário
+            $_SESSION['idUsuario'] = $row['id_usuario'];
+            $_SESSION['nivelAcesso'] = $row['tipo_usuario'];
+            $_SESSION['usuario'] = $row['nome'];
+            date_default_timezone_set('America/Sao_Paulo');
+            $_SESSION['acesso'] = date('d/m/Y H:i:s');
+
+            // Redireciona o usuário para o dashboard
+            header('Location: dashboard.php');
+            exit;
+        } else {
+            // Senha incorreta
+            echo "<script>
+            alert('Senha incorreta!');
+            window.location.href = 'index.php';
+            </script>";
+            exit();
+        }
     } else {
+        // Usuário não encontrado
         echo "<script>
-        alert('Usuario ou senhas incorretos!');
+        alert('Usuário não encontrado!');
         window.location.href = 'index.php';
         </script>";
         exit();
     }
 }
+
+$conn->close();
 ?>
