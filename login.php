@@ -2,9 +2,9 @@
 session_start();
 
 // Conexão com o banco de dados
-$servername = "localhost";
+$servername = "localhost:3308";
 $username = "root";
-$password = "psilva09";
+$password = "etec2024";
 $dbname = "controleacesso_sql";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
