@@ -1,4 +1,47 @@
-<?php require('check.php'); ?>
+<?php 
+require('check.php'); 
+// Conexão com o banco de dados
+$servername = "localhost"; // Ou o IP do servidor do banco de dados
+$username = "root"; // Usuário do banco de dados
+$password = "psilva09"; // Senha do banco de dados
+$dbname = "controleacesso_sql"; // Nome do banco de dados
+
+// Criar a conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar a conexão
+if ($conn->connect_error) {
+    die("Erro de conexão: " . $conn->connect_error);
+}
+
+// Verificar se o formulário foi enviado
+if (isset($_POST['submit'])) {
+    // Obter os dados do formulário
+    $nome = $_POST['nome'];
+    $cpf = $_POST['cpf'];
+    $telefone = $_POST['telefone'];
+    $genero = $_POST['genero'];
+
+    // Preparar o SQL para inserção dos dados
+    $sql = "INSERT INTO visitantes (nome, documento, telefone) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $nome, $cpf, $telefone);
+
+    // Executar e verificar se foi inserido com sucesso
+    if ($stmt->execute()) {
+        echo "Cadastro de visitante realizado com sucesso!";
+    } else {
+        echo "Erro ao cadastrar visitante: " . $stmt->error;
+    }
+
+    // Fechar o statement
+    $stmt->close();
+}
+
+// Fechar a conexão
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -9,13 +52,13 @@
 </head>
 <body class="body-cadastro">
     <div class="box">
-        <form action="">
+        <form action="" method="POST">
             <fieldset>
                 <legend><b>Cadastro do Visitante</b></legend>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="nome" id="nome"class="inputUser" required>
-                    <label for="Nome" class="labelInput">Nome Completo</label>
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome" class="labelInput">Nome Completo</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
@@ -28,18 +71,20 @@
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
                 <br><br>
-                <p>Genero:</p>
-                <input type="radio" id="feminino"name="genero" value="feminino"require>
-                <label for="femino">Feminino</label>
+                <p>Gênero:</p>
+                <input type="radio" id="feminino" name="genero" value="feminino" required>
+                <label for="feminino">Feminino</label>
                 <br><br>
-                <input type="radio" id="masculino"name="genero" value="masculino"require>
+                <input type="radio" id="masculino" name="genero" value="masculino" required>
                 <label for="masculino">Masculino</label>
                 <br><br>
-                <input type="radio" id="outro"name="genero" value="outro"require>
+                <input type="radio" id="outro" name="genero" value="outro" required>
                 <label for="outro">Outro</label>
                 <br><br>
                 <input type="submit" name="submit" id="submit">
+                <button type="button" onclick="window.history.back();">Voltar</button>
             </fieldset>   
+        </form>
     </div>
 </body>
 </html>
