@@ -24,7 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($stmt->execute()) {
-        echo "Acesso registrado com sucesso!";
+        // Redirecionar para evitar reenvio
+        header("Location: sucesso.php");
+        exit;
     } else {
         echo "Erro ao registrar acesso: " . $stmt->error;
     }

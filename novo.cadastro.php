@@ -2,9 +2,9 @@
 // Verificar se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Conexão com o banco de dados
-    $servername = "localhost:3308";
+    $servername = "localhost";
     $username = "root";
-    $password = "etec2024";
+    $password = "psilva09";
     $dbname = "controleacesso_sql";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
