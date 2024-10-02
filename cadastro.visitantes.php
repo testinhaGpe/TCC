@@ -1,9 +1,9 @@
 <?php 
 require('check.php'); 
-// Conexão com o banco de dados
-$servername = "localhost"; // Ou o IP do servidor do banco de dados
+// Conexão com o banco de dados ----------------- Lembrando que na etec é localhost:3308 e senha etec2024
+$servername = "localhost:3308"; // Ou o IP do servidor do banco de dados
 $username = "root"; // Usuário do banco de dados
-$password = "psilva09"; // Senha do banco de dados
+$password = "etec2024"; // Senha do banco de dados
 $dbname = "controleacesso_sql"; // Nome do banco de dados
 
 // Criar a conexão
@@ -29,7 +29,11 @@ if (isset($_POST['submit'])) {
 
     // Executar e verificar se foi inserido com sucesso
     if ($stmt->execute()) {
-        echo "Cadastro de visitante realizado com sucesso!";
+        echo "<script>
+                alert('Cadastro de visitante realizado com sucesso!');
+                window.location.href = 'dashboard.php';
+              </script>";
+        exit();
     } else {
         echo "Erro ao cadastrar visitante: " . $stmt->error;
     }

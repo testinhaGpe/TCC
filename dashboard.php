@@ -24,7 +24,8 @@
                 </fieldset>
             </form>
         </div>
-         <br><br><br>   
+        <br><br><br>   
+        
         <!-- Botão para cadastrar novos visitantes -->
         <div>
             <a href="cadastro.visitantes.php"><button>Cadastrar Novo Visitante</button></a>
@@ -32,6 +33,7 @@
 
         <!-- Botões para funcionalidades adicionais -->
         <div>
+            <a href="relatorios.php"><button>Gerar Relatório</button></a> <!-- Novo botão de relatórios -->
             <a href="logout.php"><button>Deslogar</button></a>
         </div>
     </div>
