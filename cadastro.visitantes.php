@@ -1,6 +1,6 @@
 <?php 
 require('check.php'); 
-// Conexão com o banco de dados ----------------- Lembrando que na etec é localhost:3308 e senha etec2024
+// Conexão com o banco de dados
 $servername = "localhost:3308"; // Ou o IP do servidor do banco de dados
 $username = "root"; // Usuário do banco de dados
 $password = "etec2024"; // Senha do banco de dados
@@ -22,29 +22,48 @@ if (isset($_POST['submit'])) {
     $telefone = $_POST['telefone'];
     $genero = $_POST['genero'];
 
-    // Preparar o SQL para inserção dos dados
-    $sql = "INSERT INTO visitantes (nome, documento, telefone) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $nome, $cpf, $telefone);
+    // Verificar se o CPF já existe no banco de dados
+    $sql_check = "SELECT * FROM visitantes WHERE documento = ?";
+    $stmt_check = $conn->prepare($sql_check);
+    $stmt_check->bind_param("s", $cpf);
+    $stmt_check->execute();
+    $result = $stmt_check->get_result();
 
-    // Executar e verificar se foi inserido com sucesso
-    if ($stmt->execute()) {
+    if ($result->num_rows > 0) {
+        // CPF já existe
         echo "<script>
-                alert('Cadastro de visitante realizado com sucesso!');
-                window.location.href = 'dashboard.php';
+                alert('Erro: CPF já cadastrado!');
+                window.location.href = 'cadastro.visitantes.php';
               </script>";
-        exit();
     } else {
-        echo "Erro ao cadastrar visitante: " . $stmt->error;
+        // Preparar o SQL para inserção dos dados
+        $sql = "INSERT INTO visitantes (nome, documento, telefone) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $nome, $cpf, $telefone);
+
+        // Executar e verificar se foi inserido com sucesso
+        if ($stmt->execute()) {
+            echo "<script>
+                    alert('Cadastro de visitante realizado com sucesso!');
+                    window.location.href = 'dashboard.php';
+                  </script>";
+            exit();
+        } else {
+            echo "Erro ao cadastrar visitante: " . $stmt->error;
+        }
+
+        // Fechar o statement
+        $stmt->close();
     }
 
-    // Fechar o statement
-    $stmt->close();
+    // Fechar o statement de verificação
+    $stmt_check->close();
 }
 
 // Fechar a conexão
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt">

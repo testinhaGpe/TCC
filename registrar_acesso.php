@@ -2,6 +2,9 @@
 require('check.php');
 require('conexao.php'); // Arquivo de conexão com o banco
 
+date_default_timezone_set('America/Sao_Paulo');
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_visitante = $_POST['id_visitante'];
     $acao = $_POST['acao']; // 'entrada' ou 'saida'

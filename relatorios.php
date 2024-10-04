@@ -13,8 +13,12 @@ if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
 
-// Consulta para obter registros de acesso com o nome dos visitantes
-$sql = "SELECT r.id_registro, v.nome AS nome_visitante, r.data_acesso, r.hora_entrada, r.hora_saida, r.tipo_acesso
+// Consulta para obter registros de acesso com o nome dos visitantes, formatando data e horários
+$sql = "SELECT r.id_registro, v.nome AS nome_visitante, 
+        DATE_FORMAT(r.data_acesso, '%d/%m/%Y') AS data_acesso, 
+        DATE_FORMAT(r.hora_entrada, '%H:%i') AS hora_entrada, 
+        DATE_FORMAT(r.hora_saida, '%H:%i') AS hora_saida, 
+        r.tipo_acesso
         FROM registrosdeacesso r
         JOIN visitantes v ON r.id_visitante = v.id_visitante";
 $result = $conn->query($sql);
@@ -35,12 +39,13 @@ $result = $conn->query($sql);
     <table border="1">
         <thead>
             <tr>
-                <th>ID Registro</th>
+                <th>Numero Registro</th>
                 <th>Nome do Visitante</th>
                 <th>Data de Acesso</th>
                 <th>Hora de Entrada</th>
                 <th>Hora de Saída</th>
-                <th>Tipo de Acesso</th>
+                <th> Tipo Entrada</th>
+                <th> Tipo Saida</th>
             </tr>
         </thead>
         <tbody>
@@ -54,6 +59,7 @@ $result = $conn->query($sql);
                             <td>" . $row['data_acesso'] . "</td>
                             <td>" . $row['hora_entrada'] . "</td>
                             <td>" . $row['hora_saida'] . "</td>
+                            <td>" . $row['tipo_acesso'] . "</td>
                             <td>" . $row['tipo_acesso'] . "</td>
                           </tr>";
                 }
