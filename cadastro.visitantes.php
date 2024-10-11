@@ -1,9 +1,9 @@
 <?php 
 require('check.php'); 
 // Conexão com o banco de dados
-$servername = "localhost:3308"; // Ou o IP do servidor do banco de dados
+$servername = "localhost"; // Ou o IP do servidor do banco de dados
 $username = "root"; // Usuário do banco de dados
-$password = "etec2024"; // Senha do banco de dados
+$password = "psilva09"; // Senha do banco de dados
 $dbname = "controleacesso_sql"; // Nome do banco de dados
 
 // Criar a conexão
@@ -71,7 +71,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Visitante</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css">    
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">     
 </head>
 <body class="body-cadastro">
     <div class="box">

@@ -1,8 +1,8 @@
 <?php
 // Conexão com o banco de dados
-$servername = "localhost:3308"; // Ou o IP do servidor do banco de dados
+$servername = "localhost"; // Ou o IP do servidor do banco de dados
 $username = "root"; // Usuário do banco de dados
-$password = "etec2024"; // Senha do banco de dados
+$password = "psilva09"; // Senha do banco de dados
 $dbname = "controleacesso_sql"; // Nome do banco de dados
 
 // Criar a conexão
@@ -44,8 +44,6 @@ $result = $conn->query($sql);
                 <th>Data de Acesso</th>
                 <th>Hora de Entrada</th>
                 <th>Hora de Saída</th>
-                <th> Tipo Entrada</th>
-                <th> Tipo Saida</th>
             </tr>
         </thead>
         <tbody>
@@ -59,8 +57,6 @@ $result = $conn->query($sql);
                             <td>" . $row['data_acesso'] . "</td>
                             <td>" . $row['hora_entrada'] . "</td>
                             <td>" . $row['hora_saida'] . "</td>
-                            <td>" . $row['tipo_acesso'] . "</td>
-                            <td>" . $row['tipo_acesso'] . "</td>
                           </tr>";
                 }
             } else {

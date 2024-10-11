@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Controle de Acesso</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">   
 </head>
 <body>
     <div class="login-container">
@@ -30,6 +30,7 @@
             <div class="novo-cadastro">
                 <p>Ainda não tem uma conta?</p>
                 <a href="novo.cadastro.php">Novo Cadastro</a>
+                <a href="login_administrador.php">Admistrativo</a>
             </div>
         </div>
     </div>

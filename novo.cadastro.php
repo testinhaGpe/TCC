@@ -2,9 +2,9 @@
 // Verificar se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Conexão com o banco de dados ----------------- Lembrando que na etec é locahost:3308 e senha etec2024
-    $servername = "localhost:3308";
+    $servername = "localhost";
     $username = "root";
-    $password = "etec2024";
+    $password = "psilva09";
     $dbname = "controleacesso_sql";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css">    
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">   
 </head>
 <body class="body-cadastro">
     <div class="box">

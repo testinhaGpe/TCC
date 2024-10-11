@@ -2,9 +2,9 @@
 session_start();
 
 // Conexão com o banco de dados ----------------- Lembrando que na etec é locahost:3308 e senha etec2024
-$servername = "localhost:3308"; 
+$servername = "localhost"; 
 $username = "root";
-$password = "etec2024";
+$password = "psilva09";
 $dbname = "controleacesso_sql";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

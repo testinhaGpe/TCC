@@ -13,10 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Visitante encontrado, exibir opções de entrada ou saída
+        // Visitante encontrado
         $visitante = $result->fetch_assoc();
         echo "Visitante: " . $visitante['nome'] . "<br>";
         echo "Deseja registrar a entrada ou a saída?<br>";
+
+        // Formulário para registrar entrada ou saída
         echo '<form action="registrar_acesso.php" method="POST">
                 <input type="hidden" name="id_visitante" value="' . $visitante['id_visitante'] . '">
                 <button type="submit" name="acao" value="entrada">Registrar Entrada</button>
