@@ -48,3 +48,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Administrador</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">   
+</head>
+<body>
+    <h2>Cadastro de Administrador</h2>
+    <form method="POST" action="">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
