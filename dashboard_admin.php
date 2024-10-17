@@ -33,13 +33,16 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">Admin Dashboard</a>
-        <div class="ml-auto">
+   <!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">Admin Dashboard</a>
+    <div class="ml-auto">
+        <!-- O link para a página de logout deve estar envolvendo o botão -->
+        <a href="index.php" class="logout-link">
             <button class="logout-btn">Logout</button>
-        </div>
-    </nav>
+        </a>
+    </div>
+</nav>
 
     <!-- Conteúdo do Dashboard -->
     <div class="container">

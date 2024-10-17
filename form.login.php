@@ -4,33 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Controle de Acesso</title>
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">   
+    <link rel="stylesheet" type="text/css" href="css/login.css">   
 </head>
 <body>
     <div class="login-container">
         <div class="tela-login">  
             <h2>Controle de Acesso</h2>
             <form action="login.php" method="post">          
-                <div class="mb-3">
-                    <label for="nomeUsuario"></label>
-                    <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Nome de Usuario" required>
+                <div class="form-group">
+                    <label for="nomeUsuario">Nome de Usuário</label>
+                    <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Digite seu nome de usuário" required>
                 </div>
-                <br><br>
-                <div class="mb-3">
-                    <label for="senhaUsuario"></label>
-                    <input type="password" id="senhaUsuario" name="senhaUsuario" placeholder="Senha" required>
+                <div class="form-group">
+                    <label for="senhaUsuario">Senha</label>
+                    <input type="password" id="senhaUsuario" name="senhaUsuario" placeholder="Digite sua senha" required>
                 </div>
-                <br><br>
-                <div class="d-grid">
-                    <button type="submit">Entrar</button>
-                </div>
+                <button type="submit">Entrar</button>
             </form>
 
             <!-- Opção de Novo Cadastro -->
             <div class="novo-cadastro">
                 <p>Ainda não tem uma conta?</p>
                 <a href="novo.cadastro.php">Novo Cadastro</a>
-                <a href="login_administrador.php">Admistrativo</a>
+                <p><a href="login_administrador.php">Área Administrativa</a></p>
             </div>
         </div>
     </div>

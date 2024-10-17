@@ -1,112 +1,93 @@
-
-/* Tela de Login------------------------------------------------------*/
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(45deg, rgb(20,147,220), rgb(17,54,71));
-    
-  
+/* Resetando algumas propriedades para um padrão consistente */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.tela-login {
-    background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 30px;
-    border-radius: 15%;
-    color: white;
-    margin: 0% auto;
-    filter: drop-shadow(5px,5px,5px #222);
-
-}
-input{
-    padding: 15px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-}
-button{
-    background-color: dodgerblue;
-    border: none;
-    padding: 15px;
-    width: 100%;
-    border-radius: 10px;
-    color: white;
-}
-button:hover{
-    background-color: deepskyblue;
-    cursor: pointer;
-}
-
-/* tela de Cadastro-----------------------------------------------------*/
-
-.body-cadastro{
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(45deg, rgb(20,147,220), rgb(17,54,71));
-
-}
-.box{
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 15px;
-    border-radius: 15px;
-    width: 20%;
-}
-fieldset{
-    border: 3px solid dodgerblue;
-}
-legend{
-    border: 1px solid dodgerblue;
-    padding: 10px;
+body {
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    background-color: #f4f7fa; /* Cor de fundo suave */
+    color: #333; /* Cor do texto */
+    line-height: 1.9; /* Altura da linha */
     text-align: center;
-    background-color: dodgerblue;
-    border-radius: 8px;
-}
-.inputBox{
-    position: relative;
-}
-.inputUser{
-    background: none;
-    border: none;
-    border-bottom: 1px solid white;
-    outline: none;
-    color: white;
-    font-size: 15px;
-    width: 90%;
-    letter-spacing: 2px;
-}
-.labelInput{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    pointer-events: none;
-    transition: .5s;
-}
-.inputUser:focus ~ .labelInput,
-.inputUser:valid ~ .labelInput{
-    top: -20px;
-    font-size: 12px;
-    color: dodgerblue;
 }
 
-#submit{
-    background-image: linear-gradient(to right,rgb(0, 92, 197), rgb(90, 20, 220));
-    width: 100%;
-    border: none;
-    padding: 15px;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 10px;
-}
-#submit:hover{
-    background-image: linear-gradient(to right,rgb(0, 80, 172), rgb(80, 19, 195));
+.container {
+    max-width: 1700px; /* Largura máxima do container */
+    margin: 20px auto; /* Margem automática para centralizar */
+    padding: 20px; /* Espaçamento interno */
+    background: #ffffff; /* Cor de fundo branca */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-/* Dashboard-----------------------------------------------------*/
+h1 {
+    font-size: 1.8em; /* Tamanho do título */
+    color: #007bff; /* Cor do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    text-align: center; /* Centraliza o título */
+}
+
+.form-container
+.button-container {
+    margin-bottom: 20px; /* Espaçamento entre os elementos */
+}
+
+fieldset {
+    border: none; /* Remove a borda do fieldset */
+    padding: 0; /* Remove o espaçamento interno */
+    margin: 0; /* Remove o espaçamento externo */
+}
+
+
+legend {
+    font-size: 1.4em; /* Tamanho do texto do legend */
+    color: #007bff; /* Cor do texto do legend */
+    font-weight: bold; /* Texto em negrito */
+}
+
+label {
+    display: block; /* Faz o label ocupar toda a linha */
+    margin-bottom: 5px; /* Espaçamento abaixo do label */
+}
+
+input[type="text"] {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 10px; /* Margem abaixo do input */
+    font-size: 1em; /* Tamanho da fonte */
+}
+
+button {
+    background-color: #007bff; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 15px; /* Espaçamento interno */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 1em; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s; /* Transição suave na cor */
+    width: 100%; /* Largura total do botão */
+}
+
+button:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+/* Estilizando os links */
+a {
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Ajuste no padding para telas menores */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Tamanho do título reduzido */
+    }
+}

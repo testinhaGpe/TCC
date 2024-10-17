@@ -1,4 +1,5 @@
 <?php
+
 require('check.php');
 require('conexao.php'); // Arquivo de conexão com o banco
 

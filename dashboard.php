@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">    
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">   
 </head>
 <body>
-    <div>
-        <div>
-            <p>Olá <?php echo $_SESSION['usuario']; ?>, seja bem-vindo.</p>
-        </div>
+    <div class="container">
+        <h1>Olá <?php echo $_SESSION['usuario']; ?>, seja bem-vindo.</h1>
 
         <!-- Formulário para buscar visitante já cadastrado -->
-        <div>
+        <div class="form-container">
             <form action="entrada_ou_saida.php" method="POST">
                 <fieldset>
                     <legend><b>Registrar Entrada ou Saída</b></legend>
@@ -23,17 +21,16 @@
                     <button type="submit">Buscar Visitante</button>
                 </fieldset>
             </form>
-        </div>
-        <br><br><br>   
         
+
         <!-- Botão para cadastrar novos visitantes -->
-        <div>
+        <div class="button-container">
             <a href="cadastro.visitantes.php"><button>Cadastrar Novo Visitante</button></a>
         </div>
 
         <!-- Botões para funcionalidades adicionais -->
-        <div>
-            <a href="relatorios.php"><button>Gerar Relatório</button></a> <!-- Novo botão de relatórios -->
+        <div class="button-container">
+            <a href="relatorios.php"><button>Gerar Relatório</button></a>
             <a href="logout.php"><button>Deslogar</button></a>
         </div>
     </div>

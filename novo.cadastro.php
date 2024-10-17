@@ -44,8 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">   
-</head>
-<body class="body-cadastro">
+</head><body class="body-cadastro">
     <div class="box">
         <form action="" method="POST">
             <fieldset>
@@ -55,41 +54,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome Completo</label>
                 </div>
-                <br><br>
                 <div class="inputBox">
                     <input type="text" name="cpf" id="cpf" class="inputUser" required>
                     <label for="cpf" class="labelInput">CPF</label>
                 </div>
-                <br><br>
                 <div class="inputBox">
                     <input type="email" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">Email</label>
                 </div>
-                <br><br>
                 <div class="inputBox">
                     <input type="date" name="data_nascimento" id="data_nascimento" class="inputUser" required>
                     <label for="data_nascimento" class="labelInput">Data de Nascimento</label>
                 </div>
-                <br><br>
                 <div class="inputBox">
                     <input type="tel" name="telefone" id="telefone" class="inputUser" required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
-                <br><br>
                 <div class="inputBox">
                     <input type="password" name="senha" id="senha" class="inputUser" required>
                     <label for="senha" class="labelInput">Senha</label>
                 </div>
-                <br><br>
                 <p>Nível de Acesso:</p>
                 <select name="nivel_acesso" id="nivel_acesso" required>
                     <option value="porteiro">Porteiro</option>
                     <option value="administrador">Administrador</option>
                 </select>
-                <br><br>
                 <input type="submit" name="submit" id="submit" value="Cadastrar">
-                <br><br>
-                 <!-- Botão para Voltar -->
+                <!-- Botão para Voltar -->
                 <a href="index.php">
                     <button type="button">Voltar</button>
                 </a>
