@@ -54,21 +54,142 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Administrador</title>
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">   
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 105vh;
+            margin: 0;
+        }
+        .box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        form fieldset {
+            border: none;
+            padding: 0;
+        }
+        legend {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .inputBox {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .inputBox input,
+        select {
+            width: 100%;
+            padding: 10px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .inputBox input:focus,
+        select:focus {
+            border-color: #007bff;
+        }
+        .inputBox label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            background-color: #fff;
+            padding: 0 5px;
+            color: #666;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .inputBox input:focus + .labelInput,
+        input:not(:placeholder-shown) + .labelInput {
+            top: -10px;
+            font-size: 12px;
+            color: #007bff;
+        }
+        select {
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        /* Botão Voltar */
+        a button {
+            width: 100%;
+            padding: 10px;
+            background-color: #6c757d;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        a button:hover {
+            background-color: #5a6268;
+        }
+    </style>
 </head>
-<body>
-    <h2>Cadastro de Administrador</h2>
-    <form method="POST" action="">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-        <br>
-        <button type="submit">Cadastrar</button>
-    </form>
+<body class="body-cadastro">
+    <div class="box">
+        <form method="POST" action="">
+            <fieldset>
+                <legend><b>Cadastro de Administrador</b></legend>
+                
+                <div class="inputBox">
+                    <input type="text" id="nome" name="nome" class="inputUser" required>
+                    <label for="nome" class="labelInput">Nome</label>
+                </div>
+                <div class="inputBox">
+                    <input type="email" id="email" name="email" class="inputUser" required>
+                    <label for="email" class="labelInput">Email</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="senha" name="senha" class="inputUser" required>
+                    <label for="senha" class="labelInput">Senha</label>
+                </div>
+
+                <input type="submit" name="submit" id="submit" value="Cadastrar">
+                <!-- Botão para Voltar -->
+                <a href="index.php">
+                    <button type="button">Voltar</button>
+                </a>
+            </fieldset>   
+        </form>
+    </div>
 </body>
+
 </html>

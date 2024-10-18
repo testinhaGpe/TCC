@@ -37,23 +37,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login de Administrador</title>
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">   
+    <link rel="stylesheet" type="text/css" href="css/login.css"> <!-- Usando o mesmo CSS de login -->
 </head>
 <body>
-    <h2>Login de Administrador</h2>
-    <form method="POST" action="">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-        <br>
-        <button type="submit">Entrar</button>
-    </form>
+    <div class="login-container">
+        <div class="tela-login">  
+            <h2>Login de Administrador</h2>
+            <form method="POST" action="">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
 
-    <!-- Botão para novo cadastro de administrador -->
-    <a href="cadastro_admin.php"><button>Novo Cadastro</button></a>
-    <a href="index.php"><button>Voltar</button></a>
+            <!-- Opção de Novo Cadastro -->
+            <div class="novo-cadastro">
+                <a href="cadastro_admin.php">Novo Cadastro de Administrador</a>
+                <p><a href="index.php">Voltar</a></p>
+            </div>
+        </div>
+    </div>
 
     <?php if (!empty($error)) { echo "<p>$error</p>"; } ?>
 </body>

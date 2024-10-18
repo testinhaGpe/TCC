@@ -76,7 +76,6 @@ $conn->close();
     <div class="box">
         <form action="" method="POST">
             <fieldset>
-                <br><br>
                 <legend><b>Cadastro do Visitante</b></legend>
                 
                 <div class="inputBox">

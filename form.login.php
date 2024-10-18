@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <div class="tela-login">  
-            <h2>Controle de Acesso</h2>
+            <h2>Controle de Visitante</h2>
             <form action="login.php" method="post">          
                 <div class="form-group">
                     <label for="nomeUsuario">Nome de Usuário</label>
