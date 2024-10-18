@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Olá <?php echo $_SESSION['usuario']; ?>, seja bem-vindo.</h1>
+        <h1>Olá <?php echo $_SESSION['usuario']; ?>, Seja bem-vindo.</h1>
 
         <!-- Formulário para buscar visitante já cadastrado -->
         <div class="form-container">
@@ -21,7 +21,7 @@
                     <button type="submit">Buscar Visitante</button>
                 </fieldset>
             </form>
-        
+        <br>
 
         <!-- Botão para cadastrar novos visitantes -->
         <div class="button-container">
@@ -30,7 +30,8 @@
 
         <!-- Botões para funcionalidades adicionais -->
         <div class="button-container">
-            <a href="relatorios.php"><button>Gerar Relatório</button></a>
+            <a href="relatorios.php"><button>Gerar Relatório</button></a> 
+            <br><br>
             <a href="logout.php"><button>Deslogar</button></a>
         </div>
     </div>

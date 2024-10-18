@@ -9,21 +9,22 @@ body {
     font-family: Arial, sans-serif; /* Fonte padrão */
     background-color: #f4f7fa; /* Cor de fundo suave */
     color: #333; /* Cor do texto */
-    line-height: 1.9; /* Altura da linha */
+    line-height: 2.4; /* Altura da linha */
     text-align: center;
 }
 
 .container {
-    max-width: 1700px; /* Largura máxima do container */
-    margin: 20px auto; /* Margem automática para centralizar */
-    padding: 20px; /* Espaçamento interno */
-    background: #ffffff; /* Cor de fundo branca */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
 }
 
 h1 {
-    font-size: 1.8em; /* Tamanho do título */
+    font-size: 2.1em; /* Tamanho do título */
     color: #007bff; /* Cor do título */
     margin-bottom: 20px; /* Espaçamento abaixo do título */
     text-align: center; /* Centraliza o título */
@@ -32,6 +33,7 @@ h1 {
 .form-container
 .button-container {
     margin-bottom: 20px; /* Espaçamento entre os elementos */
+    
 }
 
 fieldset {
