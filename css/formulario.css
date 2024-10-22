@@ -40,13 +40,14 @@
     .inputBox {
         position: relative;
         margin-bottom: 20px;
+        
     }
 
     .inputUser {
         width: 100%;
         padding: 14px 10px;
         font-size: 1em;
-        border: 1px solid #ccc;
+        border: 1px solid #cccccc;
         border-radius: 8px;
         outline: none;
         transition: border-color 0.3s ease;
@@ -115,7 +116,7 @@
     }
 
     button {
-        background-color: #6c757d;
+        background-color: #3636da;
     }
 
     button:hover {

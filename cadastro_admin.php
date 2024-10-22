@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         select {
             width: 100%;
             padding: 10px;
-            background: #f0f0f0;
+            background: #f8fafc;
             border: 2px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
