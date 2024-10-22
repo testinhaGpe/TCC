@@ -7,6 +7,7 @@ $username = "root"; // Nome de usuário do banco de dados
 $password = "etec2024"; // Senha do banco de dados
 $dbname = "controleacesso_sql"; // Nome do banco de dados
 
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verifica a conexão
