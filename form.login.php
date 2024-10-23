@@ -26,7 +26,8 @@
             <div class="novo-cadastro">
                 <p>Ainda não tem uma conta?</p>
                 <a href="novo.cadastro.php">Novo Cadastro</a>
-                <p><a href="login_administrador.php">Área Administrativa</a></p>
+            <!-- Opção para criar botão de administrador na tela principal de Login -->   
+            <!-- <p><a href="login_administrador.php">Área Administrativa</a></p> --> 
             </div>
         </div>
     </div>

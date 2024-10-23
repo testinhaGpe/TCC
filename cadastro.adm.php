@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 echo "Administrador cadastrado com sucesso!";
-                header("Location: login_administrador.php"); // Redireciona para a tela de login
+                header("Location: login.adm.php"); // Redireciona para a tela de login
                 exit;
             } else {
                 echo "Erro ao cadastrar administrador: " . $stmt->error;

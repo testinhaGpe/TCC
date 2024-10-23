@@ -53,7 +53,7 @@
                     <div class="card-header">Gerenciar Porteiros</div>
                     <div class="card-body">
                         <p>Gerencie o cadastro de porteiros no sistema.</p>
-                        <a href="desabilitar_usuario.php" class="btn btn-primary">Acessar</a>
+                        <a href="desabilitar.usuario.php" class="btn btn-primary">Acessar</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     <div class="card-header">Gerenciar Visitantes</div>
                     <div class="card-body">
                         <p>Controle o registro de entrada e saída de visitantes.</p>
-                        <a href="gerenciar_visitantes.php" class="btn btn-primary">Acessar</a>
+                        <a href="gerenciar.visitantes.php" class="btn btn-primary">Acessar</a>
                     </div>
                 </div>
             </div>

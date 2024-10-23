@@ -13,7 +13,7 @@
 
         <!-- Formulário para buscar visitante já cadastrado -->
         <div class="form-container">
-            <form action="entrada_ou_saida.php" method="POST">
+            <form action="entrada.ou.saida.php" method="POST">
                 <fieldset>
                     <legend><b>Registrar Entrada ou Saída</b></legend>
                     <label for="cpf">Digite o CPF do visitante:</label>

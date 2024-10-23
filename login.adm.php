@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Sessão iniciada com sucesso
         session_start();
         $_SESSION['id_administrador'] = $admin['id_administrador'];
-        header("Location: dashboard_admin.php"); // Redireciona para o dashboard de administrador
+        header("Location: dashboard.adm.php"); // Redireciona para o dashboard de administrador
         exit;
     } else {
         $error = "Email ou senha incorretos";
@@ -56,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
 
             <!-- Opção de Novo Cadastro -->
-            <div class="novo-cadastro">
-                <a href="cadastro_admin.php">Novo Cadastro de Administrador</a>
+                <!--<div class="novo-cadastro">
+                <a href="cadastro_admin.php">Novo Cadastro de Administrador</a> -->
                 <p><a href="index.php">Voltar</a></p>
             </div>
         </div>
