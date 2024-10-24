@@ -67,8 +67,8 @@ $result = $conn->query($sql);
     </table>
 
     <br><br>
-    <!-- Botão para voltar ao Dashboard -->
-    <a href="dashboard.php"><button>Voltar</button></a>
+    <!-- Botão para voltar à página anterior -->
+    <button onclick="window.history.back()">Voltar</button>
 
     <?php
     // Fechar a conexão

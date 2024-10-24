@@ -184,7 +184,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p>Nível de Acesso:</p>
                 <select name="nivel_acesso" id="nivel_acesso" required>
                     <option value="porteiro">Porteiro</option>
-                    <option value="administrador">Administrador</option>
+                <!--    <option value="administrador">Administrador</option>-->
                 </select>
                 <input type="submit" name="submit" id="submit" value="Cadastrar">
                 <!-- Botão para Voltar -->

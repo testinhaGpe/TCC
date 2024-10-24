@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Deseja registrar a entrada ou a saída?<br>";
 
         // Formulário para registrar entrada ou saída
-        echo '<form action="registrar_acesso.php" method="POST">
+        echo '<form action="registrar.acesso.php" method="POST">
                 <input type="hidden" name="id_visitante" value="' . $visitante['id_visitante'] . '">
                 <button type="submit" name="acao" value="entrada">Registrar Entrada</button>
                 <button type="submit" name="acao" value="saida">Registrar Saída</button>
