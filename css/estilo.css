@@ -93,3 +93,30 @@ a {
         font-size: 1.5em; /* Tamanho do título reduzido */
     }
 }
+
+/*----------------------------------------------------------------------------*/
+/* Personalizar o modal */
+.modal-content {
+    border-radius: 10px;
+}
+
+/* Personalizar os botões */
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}

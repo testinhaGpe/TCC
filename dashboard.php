@@ -7,40 +7,47 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .navbar {
-            background-color: #007bff;
-        }
-        .navbar-brand {
-            color: white;
-        }
-        .card-header {
-            background-color: #007bff;
-            color: white;
-        }
-        .card-container {
-            max-height: 1px; /* Definir altura máxima */
-            overflow-y: auto; /* Habilitar rolagem se o conteúdo exceder a altura máxima */
-        }
-        .logout-btn {
-            color: white;
-            background-color: #dc3545;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-        .btn-custom {
-            background-color: #007bff;
-            color: white;
-            border: none;
-        }
-        .btn-custom:hover {
-            background-color: #0056b3;
-        }
-        
-    </style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .navbar {
+        background-color: #2E2EFE;
+    }
+    .navbar-brand {
+        color: white;
+    }
+    .card-header {
+        background-color: #2E2EFE;
+        color: white;
+    }
+    .card-container {
+        max-height: 1px; /* Definir altura máxima */
+        overflow-y: auto; /* Habilitar rolagem se o conteúdo exceder a altura máxima */
+    }
+    .logout-btn {
+        color: white;
+        background-color: #DC143C;
+        border: none;
+        padding: 10px 20px; /* Aumenta o padding horizontal */
+        border-radius: 25px; /* Arredonda as bordas do botão */
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s; /* Adiciona transições suaves */
+    }
+    .logout-btn:hover {
+        background-color: #c82333; /* Tom de vermelho mais escuro no hover */
+        transform: scale(1.05); /* Efeito de aumentar levemente ao passar o mouse */
+    }
+    .btn-custom {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px; /* Arredonda as bordas dos botões personalizados */
+    }
+    .btn-custom:hover {
+        background-color: #0056b3;
+    }
+</style>
+
 </head>
 <body>
 
@@ -104,7 +111,25 @@
                         </div>
                     </div>
                 </div>
+                <!-- Card de Futuro Relatório -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header text-center">Sem Texto ainda preciso Resolver</div>
+                        <div class="card-body text-center">
+                            <a href="visualizar.visitantes.php" class="btn btn-custom btn-block">Futuro Relatório</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Card para Futuro relatorio -->
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header text-center">Sem Texto ainda preciso Resolver</div>
+                        <div class="card-body text-center">
+                            <a href="gerenciar.porteiros.php" class="btn btn-custom btn-block">Futuro Relatório</a>
+                        </div>
+                    </div>
+                </div>
                 <!-- Card de Deslogar DESATIVADO -->
                 <!-- <div class="col-md-12">
                     <div class="card">

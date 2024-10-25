@@ -10,7 +10,7 @@
             background-color: #f8f9fa;
         }
         .navbar {
-            background-color: #007bff;
+            background-color: #2E2EFE;
         }
         .navbar-brand {
             color: white;
@@ -19,7 +19,7 @@
             margin-top: 20px;
         }
         .card-header {
-            background-color: #007bff;
+            background-color: #2E2EFE;
             color: white;
         }
         .logout-btn {
@@ -28,6 +28,15 @@
             border: none;
             padding: 10px;
             cursor: pointer;
+        }
+        .logout-btn{
+        color: white;
+        background-color: #DC143C;
+        border: none;
+        padding: 10px 20px; /* Aumenta o padding horizontal */
+        border-radius: 25px; /* Arredonda as bordas do botão */
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s; /* Adiciona transições suaves */
         }
     </style>
 </head>
@@ -39,7 +48,7 @@
     <div class="ml-auto">
         <!-- O link para a página de logout deve estar envolvendo o botão -->
         <a href="index.php" class="logout-link">
-            <button class="logout-btn">Logout</button>
+            <button class="logout-btn">Deslogar</button>
         </a>
     </div>
 </nav>
