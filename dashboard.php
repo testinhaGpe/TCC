@@ -111,25 +111,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Card de Futuro Relatório -->
-                <div class="col-md-6 mb-3">
-                    <div class="card">
-                        <div class="card-header text-center">Sem Texto ainda preciso Resolver</div>
-                        <div class="card-body text-center">
-                            <a href="visualizar.visitantes.php" class="btn btn-custom btn-block">Futuro Relatório</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card para Futuro relatorio -->
-                <div class="col-md-6 mb-3">
-                    <div class="card">
-                        <div class="card-header text-center">Sem Texto ainda preciso Resolver</div>
-                        <div class="card-body text-center">
-                            <a href="gerenciar.porteiros.php" class="btn btn-custom btn-block">Futuro Relatório</a>
-                        </div>
-                    </div>
-                </div>
                 <!-- Card de Deslogar DESATIVADO -->
                 <!-- <div class="col-md-12">
                     <div class="card">
