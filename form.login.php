@@ -7,7 +7,11 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">   
 </head>
 <body>
-    <div class="login-container">
+     <!-- Imagem do Logo -->
+            <div class="logo">
+            <img src="img/logo.png" alt="Concierge - Controle o seu Acesso">
+            </div><div class="login-container">
+        
         <div class="tela-login">  
             <h2>Controle de Visitante</h2>
             <form action="login.php" method="post">          

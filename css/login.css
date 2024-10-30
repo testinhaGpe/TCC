@@ -96,3 +96,19 @@ button:hover {
 .novo-cadastro a:hover {
     color: #1c6e98;
 }
+
+.logo {
+    text-align: left; /* Centraliza o logo horizontalmente */
+    margin-bottom: 20px; /* Espaçamento abaixo do logo */
+    border: 2px solid rgba(0, 123, 255, 0.5); /* Borda semi-transparente em volta do logo */
+    border-radius: 10px; /* Borda arredondada */
+    padding: 20px; /* Espaçamento interno */
+    background-color: transparent; /* Fundo transparente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+    margin-right: 100px;
+}
+
+.logo img {
+    max-width: 90%; /* Faz o logo se ajustar ao container */
+    height: auto; /* Mantém a proporção do logo */
+}

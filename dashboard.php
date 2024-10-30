@@ -4,56 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard de Controle</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-    body {
-        background-color: #f8f9fa;
-    }
-    .navbar {
-        background-color: #2E2EFE;
-    }
-    .navbar-brand {
-        color: white;
-    }
-    .card-header {
-        background-color: #2E2EFE;
-        color: white;
-    }
-    .card-container {
-        max-height: 1px; /* Definir altura máxima */
-        overflow-y: auto; /* Habilitar rolagem se o conteúdo exceder a altura máxima */
-    }
-    .logout-btn {
-        color: white;
-        background-color: #DC143C;
-        border: none;
-        padding: 10px 20px; /* Aumenta o padding horizontal */
-        border-radius: 25px; /* Arredonda as bordas do botão */
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s; /* Adiciona transições suaves */
-    }
-    .logout-btn:hover {
-        background-color: #c82333; /* Tom de vermelho mais escuro no hover */
-        transform: scale(1.05); /* Efeito de aumentar levemente ao passar o mouse */
-    }
-    .btn-custom {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px; /* Arredonda as bordas dos botões personalizados */
-    }
-    .btn-custom:hover {
-        background-color: #0056b3;
-    }
-</style>
+        /* Estilo geral */
+        body {
+            background-color: #e9ecef;
+            font-family: Arial, sans-serif;
+        }
 
+        /* Navbar */
+        .navbar {
+            background-color: #1f2d3d;
+        }
+        .navbar-brand {
+            color: #f8f9fa;
+            font-weight: bold;
+        }
+        .navbar-brand:hover {
+            color: #adb5bd;
+        }
+
+        /* Botão de Logout */
+        .logout-btn {
+            color: white;
+            background-color: #d9534f;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .logout-btn:hover {
+            background-color: #c9302c;
+        }
+
+        /* Estilo dos Cards */
+        .card {
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* Botões Personalizados */
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-weight: bold;
+            margin-top: auto;
+            transition: background-color 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        /* Título Principal */
+        h1 {
+            color: #343a40;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-   <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">Dashboard</a>
+    <a class="navbar-brand" href="#">Controle de Portaria</a>
     <div class="ml-auto">
         <a href="logout.php" class="logout-link">
             <button class="logout-btn">Deslogar</button>
@@ -64,19 +104,15 @@
 <!-- Conteúdo Principal -->
 <div class="container mt-4">
     <div class="row justify-content-center">
-        <!-- Mensagem de boas-vindas -->
         <div class="col-12 text-center">
-            <h1>Olá, <?php echo $_SESSION['usuario']; ?>! Seja bem-vindo.</h1>
+            <h1>Bem-vindo, <?php echo $_SESSION['usuario']; ?>! Pronto para o trabalho Vagabundo?</h1>
         </div>
     </div>
 
     <div class="row mt-4">
-        <!-- Formulário de busca por visitante -->
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header text-center">
-                    Registrar Entrada ou Saída
-                </div>
+                <div class="card-header">Registrar Entrada ou Saída</div>
                 <div class="card-body">
                     <form action="entrada.ou.saida.php" method="POST">
                         <div class="form-group">
@@ -89,36 +125,24 @@
             </div>
         </div>
 
-        <!-- Cards de funcionalidades adicionais, lado a lado -->
         <div class="col-md-8">
             <div class="row">
-                <!-- Card de Cadastrar Novo Visitante -->
                 <div class="col-md-6 mb-3">
                     <div class="card">
-                        <div class="card-header text-center">Sem Texto ainda preciso Resolver</div>
-                        <div class="card-body text-center">
-                            <a href="cadastro.visitantes.php" class="btn btn-custom btn-block">Cadastrar Novo Visitante</a>
+                        <div class="card-header">Cadastrar Novo Visitante</div>
+                        <div class="card-body">
+                            <a href="cadastro.visitantes.php" class="btn btn-custom btn-block">Acessar</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card de Gerar Relatório -->
                 <div class="col-md-6 mb-3">
                     <div class="card">
-                        <div class="card-header text-center">Sem Texto ainda preciso Resolver</div>
-                        <div class="card-body text-center">
-                            <a href="relatorios.php" class="btn btn-custom btn-block">Gerar Relatório</a>
+                        <div class="card-header">Gerar Relatório</div>
+                        <div class="card-body">
+                            <a href="relatorios.php" class="btn btn-custom btn-block">Acessar</a>
                         </div>
                     </div>
-                </div>
-                <!-- Card de Deslogar DESATIVADO -->
-                <!-- <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header text-center">Deslogar</div>
-                        <div class="card-body text-center">
-                            <a href="logout.php" class="btn btn-custom btn-block">Deslogar</a>
-                        </div>
-                    </div>-->
                 </div>
             </div>
         </div>
