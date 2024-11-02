@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Visitante encontrado
         $visitante = $result->fetch_assoc();
         $id_visitante = $visitante['id_visitante'];
-        echo "<p>Visitante encontrado: <strong>" . $visitante['nome'] . "</strong></p>";
+        echo "<div class='alert alert-success'>Visitante encontrado: <strong>" . $visitante['nome'] . "</strong></div>";
 
         // Verificar o último registro de acesso
         $sql_last_access = "SELECT tipo_acesso FROM registrosdeacesso 
@@ -33,48 +33,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if ($ultimo_registro['tipo_acesso'] == 'entrada') {
                 // Visitante já registrou entrada, oferecer opção de registrar saída
-                echo "<p>O visitante já está no ambiente. Deseja registrar a saída?</p>";
-                echo '<form action="registrar.acesso.php" method="POST">
+                echo "<div class='alert alert-info'>O visitante já está no ambiente. Deseja registrar a saída?</div>";
+                echo '<form action="registrar.acesso.php" method="POST" class="mb-3">
                         <input type="hidden" name="id_visitante" value="' . $id_visitante . '">
-                        <button type="submit" name="acao" value="saida" class="btn">Registrar Saída</button>
+                        <button type="submit" name="acao" value="saida" class="btn btn-primary">Registrar Saída</button>
                       </form>';
             } else {
                 // Último acesso foi uma saída, oferecer opção de registrar entrada
-                echo "<p>O visitante não está no ambiente. Deseja registrar a entrada?</p>";
-                echo '<form action="registrar.acesso.php" method="POST">
+                echo "<div class='alert alert-info'>O visitante não está no ambiente. Deseja registrar a entrada?</div>";
+                echo '<form action="registrar.acesso.php" method="POST" class="mb-3">
                         <input type="hidden" name="id_visitante" value="' . $id_visitante . '">
-                        <button type="submit" name="acao" value="entrada" class="btn">Registrar Entrada</button>
+                        <button type="submit" name="acao" value="entrada" class="btn btn-success">Registrar Entrada</button>
                       </form>';
             }
         } else {
             // Nenhum registro anterior encontrado, oferecer opção de registrar entrada
-            echo "<p>Nenhum registro anterior encontrado. Deseja registrar a entrada?</p>";
-            echo '<form action="registrar.acesso.php" method="POST">
+            echo "<div class='alert alert-warning'>Nenhum registro anterior encontrado. Deseja registrar a entrada?</div>";
+            echo '<form action="registrar.acesso.php" method="POST" class="mb-3">
                     <input type="hidden" name="id_visitante" value="' . $id_visitante . '">
-                    <button type="submit" name="acao" value="entrada" class="btn">Registrar Entrada</button>
+                    <button type="submit" name="acao" value="entrada" class="btn btn-success">Registrar Entrada</button>
                   </form>';
         }
 
         $stmt_last_access->close();
     } else {
         // Visitante não encontrado
-        echo "<p>Visitante não encontrado. Por favor, cadastre-o primeiro.</p>";
-        echo '<a href="cadastro.visitantes.php"><button class="btn">Cadastrar Novo Visitante</button></a>';
+        echo "<div class='alert alert-danger'>Visitante não encontrado. Por favor, cadastre-o primeiro.</div>";
+        echo '<a href="cadastro.visitantes.php" class="btn btn-warning">Cadastrar Novo Visitante</a>';
     }
 
     $stmt->close();
     $conn->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Controle de Acesso</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
     
+    <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
