@@ -78,7 +78,7 @@
         }
 
         .btn-custom:hover {
-            background-color: #99caff;   /* Fundo azul ao passar o mouse */
+            background-color: #429dff;   /* Fundo azul ao passar o mouse */
             color: white;                /* Texto branco ao passar o mouse */
         }
 
@@ -115,7 +115,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Registrar Entrada ou Saída</div>
-                <div class="card-body">
+                <div class="card-body" style="min-height: 400px;">
                     <form action="entrada.ou.saida.php" method="POST">
                         <div class="form-group">
                             <label for="cpf">Digite o CPF do visitante:</label>
@@ -123,6 +123,10 @@
                         </div>
                         <button type="submit" class="btn btn-custom btn-block">Buscar Visitante</button>
                     </form>
+                        <!-- Logo abaixo do botão -->
+                        <div class="text-center mt-3">
+                            <img src="img/logo.png" alt="Logo" class="img-fluid" style="max-width: 250px;">
+                        </div>
                 </div>
             </div>
         </div>
@@ -159,6 +163,24 @@
                 <div class="col-md-6 mb-3">
                     <div class="card">
                         <div class="card-header"> Relatório de Visitantes Ativos</div>
+                        <div class="card-body">
+                            <a href="relatorio.de.visitantes.ativo.php" class="btn btn-custom btn-block">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header"> Relatório Outros</div>
+                        <div class="card-body">
+                            <a href="relatorio.de.visitantes.ativo.php" class="btn btn-custom btn-block">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header"> Relatório Outros</div>
                         <div class="card-body">
                             <a href="relatorio.de.visitantes.ativo.php" class="btn btn-custom btn-block">Acessar</a>
                         </div>

@@ -6,67 +6,87 @@
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        /* Estilo geral */
         body {
-            background-color: #eef2f5;
-            color: #333;
+            background-color: #e9ecef;
             font-family: Arial, sans-serif;
         }
+
         /* Navbar */
         .navbar {
-            background-color: #1a1f71;
-            border-bottom: 4px solid #1f5eff;
+            background-color: #1f2d3d;
         }
         .navbar-brand {
-            color: white;
+            color: #f8f9fa;
             font-weight: bold;
         }
         .navbar-brand:hover {
-            color: #d0d3db;
+            color: #adb5bd;
         }
+
         /* Botão de Logout */
         .logout-btn {
             color: white;
             background-color: #d9534f;
             border: none;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         .logout-btn:hover {
             background-color: #c9302c;
-            transform: scale(1.05);
         }
-        /* Cards */
+
+        /* Estilo dos Cards */
         .card {
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
             transition: transform 0.2s;
         }
         .card:hover {
-            transform: translateY(-4px);
+            transform: scale(1.02);
         }
+
         .card-header {
-            background-color: #1a1f71;
+            background-color: #007bff;
             color: white;
-            font-weight: bold;
             text-align: center;
-        }
-        .card-body p {
-            color: #555;
-        }
-        .btn-primary {
-            background-color: #1f5eff;
-            border: none;
             font-weight: bold;
-            border-radius: 5px;
-            padding: 10px 15px;
-            transition: background-color 0.3s, transform 0.2s;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
-        .btn-primary:hover {
-            background-color: #0044cc;
-            transform: scale(1.05);
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* Botões Personalizados */
+        .btn-custom {
+            background-color: white;     /* Fundo branco */
+            color: #007bff;              /* Texto azul */
+            border: 2px solid #007bff;   /* Borda azul */
+            border-radius: 5px;
+            padding: 10px;
+            font-weight: bold;
+            margin-top: auto;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #429dff;   /* Fundo azul ao passar o mouse */
+            color: white;                /* Texto branco ao passar o mouse */
+        }
+
+        /* Título Principal */
+        h1 {
+            color: #343a40;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -91,7 +111,7 @@
                     <div class="card-header">Gerenciar Porteiros</div>
                     <div class="card-body text-center">
                         <p>Gerencie o cadastro de porteiros no sistema.</p>
-                        <a href="desabilitar.usuario.php" class="btn btn-primary">Acessar</a>
+                        <a href="desabilitar.usuario.php" class="btn btn-custom btn-block">Acessar</a>
                     </div>
                 </div>
             </div>
@@ -102,7 +122,7 @@
                     <div class="card-header">Gerenciar Visitantes</div>
                     <div class="card-body text-center">
                         <p>Controle o registro de entrada e saída de visitantes.</p>
-                        <a href="gerenciar.visitantes.php" class="btn btn-primary">Acessar</a>
+                        <a href="gerenciar.visitantes.php" class="btn btn-custom btn-block">Acessar</a>
                     </div>
                 </div>
             </div>
@@ -113,7 +133,7 @@
                     <div class="card-header">Relatórios</div>
                     <div class="card-body text-center">
                         <p>Gere relatórios detalhados das atividades do sistema.</p>
-                        <a href="relatorios.php" class="btn btn-primary">Acessar</a>
+                        <a href="relatorios.php" class="btn btn-custom btn-block">Acessar</a>
                     </div>
                 </div>
             </div>

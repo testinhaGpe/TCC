@@ -23,12 +23,17 @@ if ($conn->connect_error) {
 
 // Consulta para obter visitantes ativos (visitantes sem hora de saída registrada)
 $sql = "SELECT v.nome AS nome_visitante, 
-        DATE_FORMAT(r.data_acesso, '%d/%m/%Y') AS data_acesso, 
-        r.hora_entrada
+               DATE_FORMAT(r.data_acesso, '%d/%m/%Y') AS data_acesso, 
+               r.hora_entrada
         FROM registrosdeacesso r
         JOIN visitantes v ON r.id_visitante = v.id_visitante
         WHERE r.hora_saida IS NULL
-        ORDER BY r.data_acesso DESC, r.hora_entrada ASC"; 
+        AND r.id_registro = (
+            SELECT MAX(sub_r.id_registro)
+            FROM registrosdeacesso sub_r
+            WHERE sub_r.id_visitante = r.id_visitante
+        )
+        ORDER BY r.data_acesso DESC, r.hora_entrada ASC";
 
 $result = $conn->query($sql);
 ?>
