@@ -67,17 +67,19 @@
 
         /* Botões Personalizados */
         .btn-custom {
-            background-color: #007bff;
-            color: white;
-            border: none;
+            background-color: white;     /* Fundo branco */
+            color: #007bff;              /* Texto azul */
+            border: 2px solid #007bff;   /* Borda azul */
             border-radius: 5px;
             padding: 10px;
             font-weight: bold;
             margin-top: auto;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .btn-custom:hover {
-            background-color: #0056b3;
+            background-color: #99caff;   /* Fundo azul ao passar o mouse */
+            color: white;                /* Texto branco ao passar o mouse */
         }
 
         /* Título Principal */
