@@ -1,13 +1,13 @@
 <?php
 // Conexão com o banco de dados
 
-//conexão Casa
+// Conexão Casa
 $servername = "localhost"; // Endereço do servidor
 $username = "root"; // Nome de usuário do banco de dados
 $password = "psilva09"; // Senha do banco de dados
 $dbname = "controleacesso_sql"; // Nome do banco de dados
 
-//Conexão Escola 
+// Conexão Escola 
 $servername = "localhost:3308"; // Endereço do servidor
 $username = "root"; // Nome de usuário do banco de dados
 $password = "etec2024"; // Senha do banco de dados
@@ -21,16 +21,14 @@ if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
 
-// Consulta para obter registros de acesso com o nome dos visitantes, formatando data e horários
-$sql = "SELECT r.id_registro, v.nome AS nome_visitante, 
+// Consulta para obter visitantes ativos (visitantes sem hora de saída registrada)
+$sql = "SELECT v.nome AS nome_visitante, 
         DATE_FORMAT(r.data_acesso, '%d/%m/%Y') AS data_acesso, 
-        DATE_FORMAT(r.hora_entrada, '%H:%i') AS hora_entrada, 
-        DATE_FORMAT(r.hora_saida, '%H:%i') AS hora_saida, 
-        r.tipo_acesso
+        r.hora_entrada
         FROM registrosdeacesso r
         JOIN visitantes v ON r.id_visitante = v.id_visitante
-        WHERE DATE(r.data_acesso) = CURDATE()  -- Filtra registros do dia atual
-        ORDER BY r.id_registro ASC"; // Ordenar pelo número do registro (id_registro)
+        WHERE r.hora_saida IS NULL
+        ORDER BY r.data_acesso DESC, r.hora_entrada ASC"; 
 
 $result = $conn->query($sql);
 ?>
@@ -40,21 +38,19 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatórios de Acesso</title>
+    <title>Relatório de Visitantes Ativos</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">   
 </head>
 <body>
-    <h1>Relatórios de Entrada e Saida</h1>
+    <h1>Relatório de Visitantes Ativos</h1>
 
-    <!-- Tabela para exibir registros de acesso -->
+    <!-- Tabela para exibir visitantes ativos com nome, data e hora de entrada -->
     <table border="1">
         <thead>
             <tr>
-                <th>Numero Registro</th>
                 <th>Nome do Visitante</th>
                 <th>Data de Acesso</th>
                 <th>Hora de Entrada</th>
-                <th>Hora de Saída</th>
             </tr>
         </thead>
         <tbody>
@@ -63,15 +59,13 @@ $result = $conn->query($sql);
                 // Exibir os registros na tabela
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>
-                            <td>" . $row['id_registro'] . "</td>
                             <td>" . $row['nome_visitante'] . "</td>
                             <td>" . $row['data_acesso'] . "</td>
                             <td>" . $row['hora_entrada'] . "</td>
-                            <td>" . $row['hora_saida'] . "</td>
                           </tr>";
                 }
             } else {
-                echo "<tr><td colspan='6'>Nenhum registro encontrado</td></tr>";
+                echo "<tr><td colspan='3'>Nenhum visitante ativo encontrado</td></tr>";
             }
             ?>
         </tbody>

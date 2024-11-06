@@ -138,12 +138,31 @@
 
                 <div class="col-md-6 mb-3">
                     <div class="card">
-                        <div class="card-header">Gerar Relatório</div>
+                        <div class="card-header">Entrada e Saida Relatório</div>
                         <div class="card-body">
                             <a href="relatorios.php" class="btn btn-custom btn-block">Acessar</a>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header">Relatório Semanal</div>
+                        <div class="card-body">
+                            <a href="relatorio.semanal.phps.php" class="btn btn-custom btn-block">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-header"> Relatório de Visitantes Ativos</div>
+                        <div class="card-body">
+                            <a href="relatorio.de.visitantes.ativo.php" class="btn btn-custom btn-block">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
