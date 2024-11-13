@@ -9,106 +9,102 @@ body {
     font-family: Arial, sans-serif; /* Fonte padrão */
     background-color: #f4f7fa; /* Cor de fundo suave */
     color: #333; /* Cor do texto */
-    line-height: 1.6; /* Altura da linha */
+    line-height: 2.4; /* Altura da linha */
     text-align: center;
 }
 
-/* Container principal */
 .container {
     width: 100%;
-    max-width: 500px; /* Define uma largura máxima */
-    margin: 30px auto; /* Centraliza o container */
+    margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
 }
 
-/* Título */
 h1 {
-    font-size: 2.1em;
-    color: #007bff;
-    margin-bottom: 20px;
+    font-size: 2.1em; /* Tamanho do título */
+    color: #007bff; /* Cor do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    text-align: center; /* Centraliza o título */
 }
 
-/* Estilos para as mensagens */
-.message {
-    padding: 15px;
-    border-radius: 5px;
-    margin: 20px 0;
-    font-size: 1.1em;
+.form-container
+.button-container {
+    margin-bottom: 20px; /* Espaçamento entre os elementos */
+    
 }
 
-.message.success {
-    background-color: #e1f7e7;
-    color: #2f8f4e;
+fieldset {
+    border: none; /* Remove a borda do fieldset */
+    padding: 0; /* Remove o espaçamento interno */
+    margin: 0; /* Remove o espaçamento externo */
 }
 
-.message.error {
-    background-color: #f8d7da;
-    color: #a94442;
+
+legend {
+    font-size: 1.4em; /* Tamanho do texto do legend */
+    color: #007bff; /* Cor do texto do legend */
+    font-weight: bold; /* Texto em negrito */
 }
 
-/* Campo de texto */
+label {
+    display: block; /* Faz o label ocupar toda a linha */
+    margin-bottom: 5px; /* Espaçamento abaixo do label */
+}
+
 input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    font-size: 1em;
+    width: 100%; /* Largura total */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda padrão */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 10px; /* Margem abaixo do input */
+    font-size: 1em; /* Tamanho da fonte */
 }
 
-/* Botão padrão */
 button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+    background-color: #007bff; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 15px; /* Espaçamento interno */
+    border: none; /* Remove borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 1em; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s; /* Transição suave na cor */
+    width: 100%; /* Largura total do botão */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Cor ao passar o mouse */
 }
 
-/* Links estilizados */
+/* Estilizando os links */
 a {
-    text-decoration: none;
+    text-decoration: none; /* Remove sublinhado dos links */
 }
 
-/* Ajuste do container para dispositivos menores */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 15px; /* Ajuste no padding para telas menores */
     }
 
     h1 {
-        font-size: 1.8em;
+        font-size: 1.5em; /* Tamanho do título reduzido */
     }
 }
 
-/* Estilização de botões adicionais */
-.btn {
-    padding: 10px 15px;
-    font-size: 1em;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
+/*----------------------------------------------------------------------------*/
+/* Personalizar o modal */
+.modal-content {
+    border-radius: 10px;
 }
 
+/* Personalizar os botões */
 .btn-success {
     background-color: #28a745;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
 .btn-success:hover {
@@ -117,8 +113,71 @@ a {
 
 .btn-danger {
     background-color: #dc3545;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
 .btn-danger:hover {
     background-color: #c82333;
+}
+/* estilo.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #4a90e2;
+    margin-top: 20px;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #4a90e2;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+td {
+    text-align: left;
+}
+
+button, a button {
+    padding: 8px 12px;
+    margin: 10px 0;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover, a button:hover {
+    background-color: #357abd;
+}
+
+a {
+    text-decoration: none;
 }

@@ -11,10 +11,17 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+
     <title>Gerenciar Usuários</title>
 </head>
 <body>
     <h1>Gerenciar Porteiros</h1>
+
+    <!-- Mensagem de sucesso -->
+    <?php if (isset($_GET['mensagem']) && $_GET['mensagem'] === 'sucesso'): ?>
+        <p style="color: green;">Status do usuário atualizado com sucesso!</p>
+    <?php endif; ?>
     
     <table border="1">
         <thead>
@@ -38,7 +45,7 @@ $result = $conn->query($sql);
                             <td>" . $row['email'] . "</td>
                             <td>" . $row['status'] . "</td>
                             <td>
-                                <form action='desabilitar_usuario.php' method='POST'>
+                                <form action='status.usuario.php' method='POST'>
                                     <input type='hidden' name='id_usuario' value='" . $row['id_usuario'] . "'>
                                     <button type='submit' name='acao' value='" . ($row['status'] == 'ativo' ? 'desabilitar' : 'ativar') . "'>
                                         " . ($row['status'] == 'ativo' ? 'Desabilitar' : 'Ativar') . "

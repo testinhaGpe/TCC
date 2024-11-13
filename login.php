@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     $nomeUsuario = $_POST['nomeUsuario'];
     $senhaUsuario = $_POST['senhaUsuario'];
 
-    // Consulta para verificar se o usuário existe
-    $sql = "SELECT id_usuario, nome, senha, tipo_usuario FROM usuarios WHERE nome = ?";
+    // Consulta para verificar se o usuário existe e está ativo
+    $sql = "SELECT id_usuario, nome, senha, tipo_usuario, status FROM usuarios WHERE nome = ? AND status = 'ativo'";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $nomeUsuario);
     $stmt->execute();
@@ -59,9 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             exit();
         }
     } else {
-        // Usuário não encontrado
+        // Usuário não encontrado ou não ativo
         echo "<script>
-        alert('Usuário não encontrado!');
+        alert('Usuário não encontrado ou inativo!');
         window.location.href = 'index.php';
         </script>";
         exit();
