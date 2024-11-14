@@ -63,6 +63,6 @@ $result = $conn->query($sql);
 
     <br><br>
     <!-- Botão para voltar ao Dashboard -->
-    <a href="dashboard.php"><button>Voltar</button></a>
+    <a href="dashboard.adm.php"><button>Voltar</button></a>
 </body>
 </html>

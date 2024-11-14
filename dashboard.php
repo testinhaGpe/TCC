@@ -51,7 +51,7 @@
         }
 
         .card-header {
-            background-color: #007bff;
+            background-color: #4a90e2;
             color: white;
             text-align: center;
             font-weight: bold;
@@ -171,21 +171,14 @@
 
                 <div class="col-md-6 mb-3">
                     <div class="card">
-                        <div class="card-header"> Relatório Outros</div>
+                        <div class="card-header"> Relatório de Tempo de Permanência de Visitantes</div>
                         <div class="card-body">
-                            <a href="relatorio.de.visitantes.ativo.php" class="btn btn-custom btn-block">Acessar</a>
+                            <a href="relatorio.tempo.php" class="btn btn-custom btn-block">Acessar</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 mb-3">
-                    <div class="card">
-                        <div class="card-header"> Relatório Outros</div>
-                        <div class="card-body">
-                            <a href="relatorio.de.visitantes.ativo.php" class="btn btn-custom btn-block">Acessar</a>
-                        </div>
-                    </div>
-                </div>
+
                 
             </div>
         </div>

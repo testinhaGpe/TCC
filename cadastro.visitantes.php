@@ -2,10 +2,10 @@
 require('check.php'); 
 // Conexão com o banco de dados
 
-$servername = "localhost"; // Endereço do servidor
-$username = "root"; // Nome de usuário do banco de dados
-$password = "psilva09"; // Senha do banco de dados
-$dbname = "controleacesso_sql"; // Nome do banco de dados
+//$servername = "localhost"; // Endereço do servidor
+//$username = "root"; // Nome de usuário do banco de dados
+//$password = "psilva09"; // Senha do banco de dados
+//$dbname = "controleacesso_sql"; // Nome do banco de dados
 
 //Conexão Escola 
 $servername = "localhost:3308"; // Endereço do servidor

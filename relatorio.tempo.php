@@ -1,5 +1,5 @@
 <?php
-// Conexão com o banco de dados
+// Configurações de conexão com o banco de dados
 
 // Conexão Casa
 //$servername = "localhost"; // Endereço do servidor
@@ -7,12 +7,11 @@
 //$password = "psilva09"; // Senha do banco de dados
 //$dbname = "controleacesso_sql"; // Nome do banco de dados
 
-// Conexão Escola 
+// Conexão Escola
 $servername = "localhost:3308"; // Endereço do servidor
 $username = "root"; // Nome de usuário do banco de dados
 $password = "etec2024"; // Senha do banco de dados
 $dbname = "controleacesso_sql"; // Nome do banco de dados
-
 
 // Criar a conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,14 +21,16 @@ if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
 
-// Consulta para obter registros de acesso da última semana com o nome dos visitantes, data e tempo de duração
+// Consulta para obter uma única entrada por visitante por dia
 $sql = "SELECT v.nome AS nome_visitante, 
         DATE_FORMAT(r.data_acesso, '%d/%m/%Y') AS data_acesso, 
-        TIMEDIFF(r.hora_saida, r.hora_entrada) AS duracao
+        MIN(DATE_FORMAT(r.hora_entrada, '%H:%i')) AS hora_entrada, 
+        MAX(DATE_FORMAT(r.hora_saida, '%H:%i')) AS hora_saida, 
+        TIMEDIFF(MAX(r.hora_saida), MIN(r.hora_entrada)) AS tempo_permanencia
         FROM registrosdeacesso r
         JOIN visitantes v ON r.id_visitante = v.id_visitante
-        WHERE r.data_acesso >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) 
-        ORDER BY r.data_acesso DESC, r.hora_entrada ASC"; 
+        GROUP BY v.nome, r.data_acesso
+        ORDER BY r.data_acesso DESC, v.nome ASC"; // Ordenar por data de acesso e nome do visitante
 
 $result = $conn->query($sql);
 ?>
@@ -39,19 +40,21 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório Semanal de Acesso</title>
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">   
+    <title>Relatório de Tempo de Permanência</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
-    <h1>Relatório Semanal de Acesso</h1>
+    <h1>Relatório de Tempo de Permanência de Visitantes</h1>
 
-    <!-- Tabela para exibir registros de acesso da última semana com nome, data e duração -->
+    <!-- Tabela para exibir registros de acesso com tempo de permanência -->
     <table border="1">
         <thead>
             <tr>
                 <th>Nome do Visitante</th>
                 <th>Data de Acesso</th>
-                <th>Tempo de Duração</th>
+                <th>Hora de Entrada</th>
+                <th>Hora de Saída</th>
+                <th>Tempo de Permanência</th>
             </tr>
         </thead>
         <tbody>
@@ -62,19 +65,21 @@ $result = $conn->query($sql);
                     echo "<tr>
                             <td>" . $row['nome_visitante'] . "</td>
                             <td>" . $row['data_acesso'] . "</td>
-                            <td>" . $row['duracao'] . "</td>
+                            <td>" . $row['hora_entrada'] . "</td>
+                            <td>" . $row['hora_saida'] . "</td>
+                            <td>" . (!empty($row['tempo_permanencia']) ? $row['tempo_permanencia'] : 'Ainda no local') . "</td>
                           </tr>";
                 }
             } else {
-                echo "<tr><td colspan='3'>Nenhum registro encontrado para a última semana</td></tr>";
+                echo "<tr><td colspan='5'>Nenhum registro encontrado</td></tr>";
             }
             ?>
         </tbody>
     </table>
 
     <br><br>
-    <!-- Botão para voltar à página anterior -->
-    <button onclick="window.history.back()">Voltar</button>
+    <!-- Botão para voltar ao dashboard administrativo -->
+    <button onclick="window.location.href='dashboard.php'">Voltar</button>
 
     <?php
     // Fechar a conexão

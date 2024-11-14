@@ -50,7 +50,7 @@
         }
 
         .card-header {
-            background-color: #007bff;
+            background-color: #4a90e2;
             color: white;
             text-align: center;
             font-weight: bold;
@@ -130,10 +130,10 @@
             <!-- Card de Relatórios -->
             <div class="col-md-4 mb-3">
                 <div class="card">
-                    <div class="card-header">Relatórios</div>
+                    <div class="card-header">Relatórios(Acesso ao APP)</div>
                     <div class="card-body text-center">
                         <p>Gere relatórios detalhados das atividades do sistema.</p>
-                        <a href="relatorios.php" class="btn btn-custom btn-block">Acessar</a>
+                        <a href="dashboard.php" class="btn btn-custom btn-block">Acessar</a>
                     </div>
                 </div>
             </div>

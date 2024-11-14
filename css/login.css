@@ -112,3 +112,13 @@ button:hover {
     max-width: 90%; /* Faz o logo se ajustar ao container */
     height: auto; /* Mantém a proporção do logo */
 }
+.btn-custom {
+    background-color: white;     /* Fundo branco */
+    color: #007bff;              /* Texto azul */
+    border: 2px solid #007bff;   /* Borda azul */
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
