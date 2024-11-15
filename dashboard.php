@@ -1,4 +1,11 @@
-<?php require('check.php'); ?>
+<?php
+session_start();
+
+if (!isset($_SESSION['id_administrador']) && !isset($_SESSION['idUsuario'])) {
+    header('Location: login.adm.php');
+    exit;
+}
+ ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -107,7 +114,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-12 text-center">
-            <h1>Bem-vindo, <?php echo $_SESSION['usuario']; ?>! Pronto para o trabalho Vagabundo?</h1>
+            <h1>Bem-vindo! Pronto para o trabalho Vagabundo?</h1>
         </div>
     </div>
 
@@ -155,7 +162,7 @@
                     <div class="card">
                         <div class="card-header">Relatório Semanal</div>
                         <div class="card-body">
-                            <a href="relatorio.semanal.phps.php" class="btn btn-custom btn-block">Acessar</a>
+                            <a href="relatorio.semanal.php" class="btn btn-custom btn-block">Acessar</a>
                         </div>
                     </div>
                 </div>

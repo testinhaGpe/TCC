@@ -1,17 +1,5 @@
 <?php
-// Conexão com o banco de dados
-
-//conexão Casa
-//$servername = "localhost"; // Endereço do servidor
-//$username = "root"; // Nome de usuário do banco de dados
-//$password = "psilva09"; // Senha do banco de dados
-//$dbname = "controleacesso_sql"; // Nome do banco de dados
-
-//conexão Escola
-$servername = "localhost:3308"; // Endereço do servidor
-$username = "root"; // Nome de usuário do banco de dados
-$password = "etec2024"; // Senha do banco de dados
-$dbname = "controleacesso_sql"; // Nome do banco de dados
+require('conexao.php'); // Arquivo de conexão com o banco de dados
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
