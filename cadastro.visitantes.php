@@ -2,7 +2,7 @@
 require('check.php'); 
 // Conexão com o banco de dados
 
-require('conexao.php'); // Conexão com o banco de dados
+require('conexao.php'); // Arquivo de conexão com o banco
 
 
 // Criar a conexão
@@ -69,49 +69,60 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Visitante</title>
-    <link rel="stylesheet" type="text/css" href="css/formulario.css">     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilo Customizado -->
+    <link rel="stylesheet" href="css/formulario.css">
 </head>
-<body class="body-cadastro">
-    <div class="box">
-        <form action="" method="POST">
-            <fieldset>
-                <legend><b>Cadastro do Visitante</b></legend>
-                
-                <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome Completo</label>
-                </div>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>Cadastro do Visitante</h3>
+            </div>
+            <div class="card-body">
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome Completo</label>
+                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite seu nome" required>
+                    </div>
 
-                <div class="inputBox">
-                    <input type="text" name="cpf" id="cpf" class="inputUser" required>
-                    <label for="cpf" class="labelInput">CPF</label>
-                </div>
+                    <div class="mb-3">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input type="text" name="cpf" id="cpf" class="form-control" placeholder="Digite seu CPF" required>
+                    </div>
 
-                <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telefone</label>
-                </div>
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="tel" name="telefone" id="telefone" class="form-control" placeholder="Digite seu telefone" required>
+                    </div>
 
-                <p>Gênero:</p>
-                <div class="radioGroup">
-                    <input type="radio" id="feminino" name="genero" value="feminino" required>
-                    <label for="feminino">Feminino</label>
-                </div>
-                
-                <div class="radioGroup">
-                    <input type="radio" id="masculino" name="genero" value="masculino" required>
-                    <label for="masculino">Masculino</label>
-                </div>
+                    <div class="mb-3">
+                        <p class="form-label">Gênero:</p>
+                        <div class="form-check">
+                            <input type="radio" id="feminino" name="genero" value="feminino" class="form-check-input" required>
+                            <label for="feminino" class="form-check-label">Feminino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="masculino" name="genero" value="masculino" class="form-check-input" required>
+                            <label for="masculino" class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="outro" name="genero" value="outro" class="form-check-input" required>
+                            <label for="outro" class="form-check-label">Outro</label>
+                        </div>
+                    </div>
 
-                <div class="radioGroup">
-                    <input type="radio" id="outro" name="genero" value="outro" required>
-                    <label for="outro">Outro</label>
-                </div>
-
-                <input type="submit" name="submit" id="submit" value="Cadastrar">
-                <button type="button" onclick="window.history.back();">Voltar</button>
-            </fieldset>   
-        </form>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" name="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="button" onclick="window.history.back();" class="btn btn-secondary">Voltar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

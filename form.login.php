@@ -8,8 +8,11 @@
 </head>
 <body>
      <!-- Imagem do Logo -->
-            <div class="logo">
+     <div class="logo">
+        <a href="login.adm.php">
             <img src="img/logo.png" alt="Concierge - Controle o seu Acesso">
+        </a>
+    </div>
             </div><div class="login-container">
         
         <div class="tela-login">  

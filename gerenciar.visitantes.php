@@ -16,31 +16,56 @@ $result = $conn->query($sql);
     <title>Gerenciar Visitantes</title>
     <!-- Link para o Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Alinhamento dos botões */
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* Cor azul personalizada para cabeçalhos */
+        .table thead th {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        /* Remover margens desnecessárias */
+        .btn {
+            margin: 0;
+        }
+        h2 {
+            font-weight: bold; /* Tornar o texto em negrito */
+            color: #333; /* Cor mais sóbria */
+            font-size: 30px; /* Tamanho de fonte maior */
+            text-align: center; /* Alinhar o texto ao centro */
+            color: #4a90e2;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
-        <!-- Botão de Voltar para o Dashboard -->
-        <div class="mb-4">
+        <div class="action-buttons">
+            <!-- Botão de Voltar para o Dashboard -->
             <a href="dashboard.adm.php" class="btn btn-secondary">Voltar</a>
+
+            <!-- Formulário de Pesquisa -->
+            <form class="form-inline" method="GET" action="">
+                <input type="text" name="search" class="form-control mr-2" placeholder="Buscar por nome ou documento">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
         </div>
 
         <h2 class="text-center mb-4">Gerenciar Visitantes</h2>
-        
-        <!-- Formulário de Pesquisa -->
-        <form class="form-inline mb-4" method="GET" action="">
-            <input type="text" name="search" class="form-control mr-2" placeholder="Buscar por nome ou documento">
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
 
         <!-- Tabela de Visitantes -->
         <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
+            <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nome</th>
                     <th>Documento</th>
                     <th>Telefone</th>
-                    <th>Responsável</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -48,11 +73,9 @@ $result = $conn->query($sql);
                 <?php if ($result->num_rows > 0): ?>
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row['id_visitante']; ?></td>
                             <td><?php echo $row['nome']; ?></td>
                             <td><?php echo $row['documento']; ?></td>
                             <td><?php echo $row['telefone'] ?: 'N/A'; ?></td>
-                            <td><?php echo $row['usuario_responsavel'] ?: 'Não atribuído'; ?></td>
                             <td>
                                 <!-- Botões de Ação -->
                                 <a href="editar_visitante.php?id=<?php echo $row['id_visitante']; ?>" class="btn btn-warning btn-sm">Editar</a>
@@ -62,7 +85,7 @@ $result = $conn->query($sql);
                     <?php endwhile; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="6" class="text-center">Nenhum visitante encontrado</td>
+                        <td colspan="5" class="text-center">Nenhum visitante encontrado</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
