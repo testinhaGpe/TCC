@@ -1,3 +1,37 @@
+<?php
+// Verificar se o formulário foi enviado
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {require('conexao.php'); // Conexão com o banco de dados
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Verificar conexão
+    if ($conn->connect_error) {
+        die("Falha na conexão: " . $conn->connect_error);
+    }
+
+    // Receber dados do formulário
+    $nome = $_POST['nome'];
+    $cpf = $_POST['cpf'];
+    $email = $_POST['email']; // Certifique-se de adicionar esse campo no formulário
+    $data_nascimento = $_POST['data_nascimento'];
+    $telefone = $_POST['telefone'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Hash da senha
+    $tipo_usuario = $_POST['nivel_acesso']; // 'porteiro' ou 'administrador'
+
+    // Inserir dados na tabela 'usuarios'
+    $sql = "INSERT INTO usuarios (nome, cpf, email, data_nascimento, telefone, senha, tipo_usuario) 
+            VALUES ('$nome', '$cpf', '$email', '$data_nascimento', '$telefone', '$senha', '$tipo_usuario')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Novo usuário cadastrado com sucesso!";
+    } else {
+        echo "Erro: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
