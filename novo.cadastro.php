@@ -1,6 +1,7 @@
 <?php
 // Verificar se o formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {require('conexao.php'); // Conexão com o banco de dados
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require('conexao.php'); // Conexão com o banco de dados
     
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -12,20 +13,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {require('conexao.php'); // Conexão c
     // Receber dados do formulário
     $nome = $_POST['nome'];
     $cpf = $_POST['cpf'];
-    $email = $_POST['email']; // Certifique-se de adicionar esse campo no formulário
+    $email = $_POST['email'];
     $data_nascimento = $_POST['data_nascimento'];
     $telefone = $_POST['telefone'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Hash da senha
-    $tipo_usuario = $_POST['nivel_acesso']; // 'porteiro' ou 'administrador'
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $tipo_usuario = $_POST['nivel_acesso'];
 
-    // Inserir dados na tabela 'usuarios'
-    $sql = "INSERT INTO usuarios (nome, cpf, email, data_nascimento, telefone, senha, tipo_usuario) 
-            VALUES ('$nome', '$cpf', '$email', '$data_nascimento', '$telefone', '$senha', '$tipo_usuario')";
+    // Verificar duplicidade de CPF ou e-mail
+    $sql_check = "SELECT * FROM usuarios WHERE cpf = '$cpf' OR email = '$email'";
+    $result = $conn->query($sql_check);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Novo usuário cadastrado com sucesso!";
+    if ($result->num_rows > 0) {
+        // Exibir mensagem de erro se CPF ou e-mail já existirem
+        $erro = "Erro: CPF ou e-mail já cadastrado!";
     } else {
-        echo "Erro: " . $sql . "<br>" . $conn->error;
+        // Inserir dados na tabela 'usuarios'
+        $sql = "INSERT INTO usuarios (nome, cpf, email, data_nascimento, telefone, senha, tipo_usuario) 
+                VALUES ('$nome', '$cpf', '$email', '$data_nascimento', '$telefone', '$senha', '$tipo_usuario')";
+
+        if ($conn->query($sql) === TRUE) {
+            // Redirecionar para index.php após o cadastro
+            header("Location: index.php");
+            exit();
+        } else {
+            $erro = "Erro ao cadastrar usuário: " . $conn->error;
+        }
     }
 
     $conn->close();
@@ -79,6 +91,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {require('conexao.php'); // Conexão c
         .btn-secondary:hover {
             background-color: #5a6268;
         }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -86,6 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {require('conexao.php'); // Conexão c
         <form action="" method="POST">
             <fieldset>
                 <legend>Cadastro de Novo Usuário</legend>
+
+                <!-- Exibir mensagem de erro, se houver -->
+                <?php if (!empty($erro)): ?>
+                    <p class="error-message"><?= $erro; ?></p>
+                <?php endif; ?>
                 
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome Completo</label>
