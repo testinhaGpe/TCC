@@ -114,7 +114,7 @@ if (!isset($_SESSION['id_administrador']) && !isset($_SESSION['idUsuario'])) {
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-12 text-center">
-            <h1>Bem-vindo! Pronto para o trabalho Vagabundo?</h1>
+            <h1>Bem-vindo! Pronto para o trabalho? "Obstáculos não podem parar você".</h1>
         </div>
     </div>
 
